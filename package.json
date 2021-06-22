@@ -1,0 +1,27 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode='production'",
+    "watch": "webpack --mode='production' --watch",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saleh-Jomar/to-do-list.git"
+  },
+  "keywords": [],
+  "author": "Saleh Jomar Salugandang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saleh-Jomar/to-do-list/issues"
+  },
+  "homepage": "https://github.com/Saleh-Jomar/to-do-list#readme",
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
