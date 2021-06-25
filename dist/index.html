@@ -9,11 +9,41 @@
         <script src="main.js" defer></script>
     </head>
     <body>
-        <div id="content">
-            <header>
-                <i class="fas fa-clipboard-check"></i>
-                <h1 id="header-title">ToDo List</h1>
-            </header>
-        </div>
+        <header>
+            <i class="fas fa-clipboard-check"></i>
+            <h1 id="header-title">ToDo List</h1>
+        </header>
+
+        <main>
+            <nav>
+                <div id="Defaults">
+                    <button class="button-default" id='button-home'>
+                        <i class="fas fa-home"></i>
+                        Home
+                    </button>
+                    <button class="button-default" id='button-today'>
+                        <i class="fas fa-calendar-day"></i>
+                        Today
+                    </button>
+                    <button class="button-default" id='button-week'>
+                        <i class="fas fa-calendar-week"></i>
+                        This Week
+                    </button>
+                </div>
+                <div id="Project-Header">
+                    <h1 id="project-title">Projects</h1>
+                    <button id="button-add-project">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id='Project-List'></div>
+            </nav>
+        </main>
+
+        <footer>
+            Copyright ©2021 Saleh-Jomar
+            <i class="fab fa-github"></i>
+            Site Design by: michalosman <i class="fab fa-github"></i>
+        </footer>
     </body>
 </html>

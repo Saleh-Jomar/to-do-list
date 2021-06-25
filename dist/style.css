@@ -10,10 +10,30 @@ html {
     position: relative;
     min-height: 100%;
 }
+body {
+    font-size: 1.6rem;
+}
 
 i {
     margin-right: 1rem;
 }
+
+main {
+    display: flex;
+    min-height: 100%;
+}
+
+button {
+    display: block;
+    padding: 0.625em;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    outline: none;
+    background-color: inherit;
+    font-size: inherit;
+}
+
 
 /*Header*/
 header {
@@ -29,3 +49,53 @@ header {
 header .fas {
     font-size: 4rem;
 }
+
+/*Footer*/
+footer{
+    width: 100%;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/*Nav*/
+nav {
+    flex: 1;
+    max-width: 30rem;
+    padding: 2rem;
+    background-color: #ddd
+}
+
+.button-default {
+    width: 100%;
+    text-align: left;
+}
+
+#button-add-project{
+    font-size: 3rem;
+    padding: 0.25em;
+    border-radius: 0;
+}
+
+#Project-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#project-title {
+    padding: 1rem;
+}
+
+.fa-plus {
+    margin: 0;
+}
+
+.button-default:hover, #button-add-project:hover{
+    background-color: #ccc;
+}
+
+/*Main Content*/
