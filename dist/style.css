@@ -69,7 +69,7 @@ nav {
     background-color: #ddd
 }
 
-.button-default {
+.button-default,.button-projects {
     width: 100%;
     text-align: left;
 }
@@ -94,8 +94,60 @@ nav {
     margin: 0;
 }
 
-.button-default:hover, #button-add-project:hover{
+.button-default:hover, #button-add-project:hover, .button-projects:hover{
     background-color: #ccc;
 }
 
-/*Main Content*/
+/*Forms*/
+
+.overlay.active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.add-project-popup {
+    font-size: 1.6rem;
+    background-color: #ddd;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    min-width: 40rem;
+    padding: 2em;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    transform: translate(-50%, -50%)scale(0);
+    transition: 200ms ease-in-out;
+}
+.add-project-popup.active {
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.add-project-popup input{
+    font-size: inherit;
+    border: 1px solid #aaa;
+    width: 80%;
+    padding: .5em;
+    margin: .5em;
+    border-radius: 5px;
+}
+.add-project-popup input:focus{
+    outline: none;
+}
+.decision-button {
+    display: inline-block;
+    border: 1px solid black;
+    width: 25%;
+    margin: .5em;
+    padding: .5em;
+    border-radius: 5px;
+    background-color: rgb(121, 180, 121);
+}
+.decision-button.cancel {
+    background-color: rgb(226, 113, 113);
+}

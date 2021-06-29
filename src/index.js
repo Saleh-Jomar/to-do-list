@@ -1,2 +1,9 @@
-console.log('hello world')
-console.log('hello world2')
+import WebUI from "./WebUI";
+
+class Main {
+    static Initialize(){
+        WebUI.Initialize();
+    }
+}
+
+Main.Initialize();

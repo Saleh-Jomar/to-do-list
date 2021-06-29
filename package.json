@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/Saleh-Jomar/to-do-list#readme",
   "devDependencies": {
-    "eslint": "^7.29.0",
     "webpack": "^5.40.0",
     "webpack-cli": "^4.7.2"
   }

@@ -36,7 +36,12 @@
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
-                <div id="Project-List"></div>
+                <div id="Project-List">
+                    <button class="button-projects"> <!-- Placeholder -->
+                        <i class="fas fa-tasks"></i> <!-- Placeholder -->
+                        Demo Project                 <!-- Placeholder -->
+                    </button>                        <!-- Placeholder -->
+                </div>
             </nav>
             <div id='to-do-list'></div>
         </main>
@@ -46,5 +51,15 @@
             <i class="fab fa-github"></i>
             Site Design by: michalosman <i class="fab fa-github"></i>
         </footer>
+
+        <div class="add-project-popup">
+            <form>
+                <h3>Add Project</h3>
+                <input type="text" id="project-name">
+                <button class='decision-button' id='confirm-project'>Confirm</button>
+                <button class='decision-button cancel'>Cancel</button>
+            </form>
+        </div>
+        <div class='overlay'></div>
     </body>
 </html>
