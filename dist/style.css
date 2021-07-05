@@ -90,7 +90,7 @@ nav {
     padding: 1rem;
 }
 
-.fa-plus {
+#Project-Header .fa-plus {
     margin: 0;
 }
 
@@ -150,4 +150,32 @@ nav {
 }
 .decision-button.cancel {
     background-color: rgb(226, 113, 113);
+}
+
+/*Main*/
+
+#to-do-list-container {
+    padding: 2rem 4rem;
+    flex: 2;
+    max-width: 90rem;
+}
+#to-do-list-header{
+    padding: 1rem;
+}
+#add-task-button {
+    text-align: center;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+#add-task-button:hover, .task:hover {
+    background-color: #ddd;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial;
+    padding: 0.625em;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
