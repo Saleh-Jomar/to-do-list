@@ -29,7 +29,9 @@ export default class WebUI {
 
     static displayProjectTitle(e){
         const projectTitle = document.querySelector('#current-project-title')
-        const content = e.target.innerHTML;
+        if(e.target.className!='button-projects'&&e.target.className!='button-default'){return}
+        const content = e.target.className=='button-projects'? e.target.querySelector('div').innerHTML:
+        e.target.innerHTML;
         projectTitle.innerHTML = content;
     }
 
@@ -51,6 +53,12 @@ export default class WebUI {
         WebUI.toDoList.removeChild(task);
     }
 
+    static removeProject(e){
+        const proj = e.target.parentNode;
+        WebUI.projectList.removeChild(proj);
+        document.querySelector('#button-home').click();
+    }
+
     static taskDisplayModify(e){
         const property = e.target.className;
         switch(property){
@@ -59,6 +67,18 @@ export default class WebUI {
                 break;
             case 'task-remove':
                 WebUI.removeTask(e);
+                break;
+        }
+    }
+
+    static projDisplayModify(e){
+        const property = e.target.className;
+        switch(property){
+            case 'button-projects':
+                WebUI.displayProjectTitle(e);
+                break;
+            case 'project-remove':
+                WebUI.removeProject(e);
                 break;
         }
     }
@@ -102,7 +122,7 @@ export default class WebUI {
         })
 
         //Change Project Title Event
-        WebUI.projectList.addEventListener('click',WebUI.displayProjectTitle);
+        WebUI.projectList.addEventListener('click',WebUI.projDisplayModify);
         WebUI.projDefaultBut.forEach(button =>{
             button.addEventListener('click',WebUI.displayProjectTitle);
         })

@@ -95,8 +95,19 @@ nav {
 #Project-Header .fa-plus {
     margin: 0;
 }
+.button-projects {
+    display: flex;
+    justify-content: space-between;
+}
 .button-projects div{
     display: inline-block;
+    pointer-events: none;
+}
+.button-projects .project-remove{
+    pointer-events: all;
+}
+.button-projects .project-remove i{
+    margin: 0;
 }
 .button-default:hover, #button-add-project:hover, .button-projects:hover{
     background-color: #ccc;
