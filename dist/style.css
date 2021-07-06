@@ -8,6 +8,7 @@ html {
     font-size: 10px;
     line-height: 1.6;
     height: 100%;
+    cursor: default;
 }
 body {
     font-size: 1.6rem;
@@ -18,6 +19,7 @@ body {
 
 i {
     margin-right: 1rem;
+    pointer-events: none;
 }
 
 main {
@@ -77,7 +79,7 @@ nav {
 #button-add-project{
     font-size: 3rem;
     padding: 0.25em;
-    border-radius: 0;
+    border-radius: 0.5rem;
 }
 
 #Project-Header {
@@ -93,7 +95,9 @@ nav {
 #Project-Header .fa-plus {
     margin: 0;
 }
-
+.button-projects div{
+    display: inline-block;
+}
 .button-default:hover, #button-add-project:hover, .button-projects:hover{
     background-color: #ccc;
 }
@@ -109,7 +113,8 @@ nav {
     background-color: rgba(0,0,0,0.5);
 }
 
-.add-project-popup {
+.add-project-popup, .add-task-popup {
+    width: 25%;
     font-size: 1.6rem;
     background-color: #ddd;
     position: fixed;
@@ -124,11 +129,11 @@ nav {
     transform: translate(-50%, -50%)scale(0);
     transition: 200ms ease-in-out;
 }
-.add-project-popup.active {
+.add-project-popup.active, .add-task-popup.active {
     transform: translate(-50%,-50%) scale(1);
 }
 
-.add-project-popup input{
+.add-project-popup input, .add-task-popup input{
     font-size: inherit;
     border: 1px solid #aaa;
     width: 80%;
@@ -136,7 +141,7 @@ nav {
     margin: .5em;
     border-radius: 5px;
 }
-.add-project-popup input:focus{
+.add-project-popup input:focus, .add-task-popup input:focus{
     outline: none;
 }
 .decision-button {
@@ -160,16 +165,24 @@ nav {
     max-width: 90rem;
 }
 #to-do-list-header{
-    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
 }
-#add-task-button {
+#current-project-title div{
+    display: inline-block;
+}
+#add-task-button {  
     text-align: center;
-    width: 100%;
     border-radius: 0.5rem;
 }
+
 #add-task-button:hover, .task:hover {
     background-color: #ddd;
 }
+
+/*Task List*/
 
 .task {
     display: flex;
@@ -177,5 +190,18 @@ nav {
     font-family: Arial;
     padding: 0.625em;
     border-radius: 0.5rem;
+}
+.task button{
+    display: inline-block;
+    padding: 0;
+    margin-left: .25rem;
+}
+.task i{
+    margin: 0;
+}
+.task input{
     cursor: pointer;
+}
+.task div{
+    display: inline-block;
 }

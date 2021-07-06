@@ -38,9 +38,9 @@
                 </div>
                 <div id="Project-List">
                     <!-- Placeholder -->
-                    <button class="button-projects">
+                    <button class="button-projects" id='demo-project' style="display: none;">
                         <i class="fas fa-tasks"></i>
-                        Demo Project
+                        <div class="project-name">Demo Project</div>
                     </button>
                     <!-- Placeholder -->
                 </div>
@@ -48,21 +48,28 @@
             <div id="to-do-list-container">
                 <div id="to-do-list-header">
                     <!-- Placeholder -->
-                    <h1 id="current-project-title">Project Title</h1>
-                    <!--Placeholder-->
-                </div>
-                <div id="to-do-list">
-                    <div class="task">
-                        <div>
-                            <i class="fas fa-thumbtack"></i>
-                            Task name
-                        </div>
-                        <div>11/11/1998</div>
-                    </div>
+                    <h1 id="current-project-title">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </h1>
                     <button id="add-task-button">
                         <i class="fas fa-plus"></i>
                         Add Task
                     </button>
+                    <!--Placeholder-->
+                </div>
+                <div id="to-do-list">
+                    <div class="task" id='Template' style="display: none;">
+                        <div>
+                            <input type="checkbox" class="task-status"/>
+                            <div class='task-name'>Template</div>
+                        </div>
+                        <div>
+                            <div class='task-date'>Template</div>
+                            <button><i class="fas fa-edit" aria-hidden="true"></i></button>
+                            <button class="task-remove"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -76,9 +83,16 @@
         <!--From Elements-->
         <form class="add-project-popup">
             <h3>Add Project</h3>
-            <input type="text" id="project-name" />
+            <input type="text" id="project-name" required/>
             <button class="decision-button" id="confirm-project">Confirm</button>
-            <button class="decision-button cancel">Cancel</button>
+            <button class="decision-button cancel" type="button">Cancel</button>
+        </form>
+        <form class="add-task-popup">
+            <h3>Add Task</h3>
+            <input type="text" id="task-name" placeholder="Task Name" required/>
+            <input type="date" id="task-date" />
+            <button class="decision-button" id="confirm-task">Confirm</button>
+            <button class="decision-button cancel" type="button">Cancel</button>
         </form>
         <div class="overlay"></div>
     </body>
