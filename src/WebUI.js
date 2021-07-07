@@ -83,21 +83,6 @@ export default class WebUI {
         }
     }
 
-    static renderTask(e){
-        e.preventDefault();
-        const description = document.querySelector('#task-name').value;
-        const date = document.querySelector('#task-date').value||'No Date';
-
-        const templateClone = document.getElementById('Template').cloneNode(true);
-        templateClone.querySelector('.task-name').textContent = description;
-        templateClone.querySelector('.task-date').textContent = date;
-        templateClone.removeAttribute('id');
-        templateClone.removeAttribute('style');
-
-        WebUI.toDoList.append(templateClone);
-        WebUI.closePopup();
-    }
-    
     static renderProject(e){
         e.preventDefault();
         const description = document.querySelector('#project-name').value;
@@ -121,7 +106,7 @@ export default class WebUI {
             button.addEventListener('click',WebUI.closePopup);
         })
 
-        //Change Project Title Event
+        //Project Display Modifier Events
         WebUI.projectList.addEventListener('click',WebUI.projDisplayModify);
         WebUI.projDefaultBut.forEach(button =>{
             button.addEventListener('click',WebUI.displayProjectTitle);
@@ -130,7 +115,6 @@ export default class WebUI {
 
         //Task Display Modifier Events
         WebUI.toDoList.addEventListener('click',WebUI.taskDisplayModify);
-        WebUI.addTaskForm.addEventListener('submit',WebUI.renderTask);
         WebUI.addProjectForm.addEventListener('submit',WebUI.renderProject);
     }    
 }
