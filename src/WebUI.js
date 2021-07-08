@@ -1,5 +1,5 @@
 export default class WebUI {
-
+    // DOM CACHE
     static overlay = document.querySelector('.overlay');
     static addProjectForm = document.querySelector('.add-project-popup');
     static addTaskForm = document.querySelector('.add-task-popup');
@@ -11,6 +11,8 @@ export default class WebUI {
     static toDoList = document.querySelector('#to-do-list');
     static projectList = document.querySelector('#Project-List');
 
+    static taskTemplate = document.getElementById('Template');
+    // DOM Methods
     static addProjectPopup(){
         WebUI.addProjectForm.reset();
         WebUI.overlay.classList.add('active');
@@ -83,17 +85,6 @@ export default class WebUI {
         }
     }
 
-    static renderProject(e){
-        e.preventDefault();
-        const description = document.querySelector('#project-name').value;
-        const templateClone = document.getElementById('demo-project').cloneNode(true);
-        templateClone.querySelector('.project-name').textContent = description;
-        templateClone.removeAttribute('id');
-        templateClone.removeAttribute('style');
-        WebUI.projectList.append(templateClone);
-        WebUI.closePopup();
-
-    }
     static Initialize(){
         //Form Popup Events
         window.addEventListener('keydown', (e) => {
@@ -115,7 +106,6 @@ export default class WebUI {
 
         //Task Display Modifier Events
         WebUI.toDoList.addEventListener('click',WebUI.taskDisplayModify);
-        WebUI.addProjectForm.addEventListener('submit',WebUI.renderProject);
     }    
 }
 

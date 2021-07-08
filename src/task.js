@@ -19,7 +19,7 @@ export default class Task{
     }
 
     render(){
-        const templateClone = document.getElementById('Template').cloneNode(true);
+        const templateClone = WebUI.taskTemplate.cloneNode(true);
         templateClone.querySelector('.task-name').textContent = this.description;
         templateClone.querySelector('.task-date').textContent = this.date;
         templateClone.removeAttribute('id');
