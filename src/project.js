@@ -9,8 +9,8 @@ export default class Project{
         return this.tasks.find(task => task.description === description);
     }
 
-    contains(newTask){
-        return this.tasks.some(task => task.description === newTask.description);
+    contains(description){
+        return this.tasks.some(task => task.description === description);
     }
 
     add(task){

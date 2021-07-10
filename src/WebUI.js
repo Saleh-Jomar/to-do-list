@@ -11,6 +11,8 @@ export default class WebUI {
     static toDoList = document.querySelector('#to-do-list');
     static projectList = document.querySelector('#Project-List');
 
+    static homeButton = document.querySelector('#button-home');
+
     static taskTemplate = document.getElementById('Template');
     // DOM Methods
     static addProjectPopup(){
@@ -58,7 +60,6 @@ export default class WebUI {
     static removeProject(e){
         const proj = e.target.parentNode;
         WebUI.projectList.removeChild(proj);
-        document.querySelector('#button-home').click();
     }
 
     static taskDisplayModify(e){

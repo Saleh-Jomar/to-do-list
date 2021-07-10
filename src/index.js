@@ -26,21 +26,19 @@ class Main {
         Main.TODOLIST.push(newProj);
         newProj.render();
         WebUI.closePopup();
-        console.log(Main.TODOLIST);
     }
 
     static addTask(e) {
         e.preventDefault();
         const newTask = Main.inputTask();
-        const Project = Main.getCurrProj();
-        if (Project.contains(newTask)) {
+        const project = Main.getCurrProj();
+        if (project.contains(newTask.description)) {
             alert("You already made a task like this");
             return;
         }
-        Project.add(newTask);
+        project.add(newTask);
         newTask.render();
         WebUI.closePopup();
-        console.log(Main.TODOLIST);
     }
 
     static editTaskStatus(e) {
@@ -48,9 +46,11 @@ class Main {
             return;
         }
         const description = e.target.parentNode.parentNode.querySelector(".task-name").textContent;
-        const Project = Main.getCurrProj();
-        Project.getTask(description).setStatus(e.target.checked);
-        console.log(Main.TODOLIST);
+        let project = Main.getCurrProj();
+        if(project.name == 'Home'){
+            project = Main.getProjFromDes(description);
+        }
+        project.getTask(description).setStatus(e.target.checked);
     }
 
     static removeTask(e) {
@@ -58,9 +58,11 @@ class Main {
             return;
         }
         const description = e.target.parentNode.parentNode.querySelector(".task-name").textContent;
-        const Project = Main.getCurrProj();
-        Project.delete(description);
-        console.log(Main.TODOLIST);
+        let project = Main.getCurrProj();
+        if(project.name == 'Home'){
+            project = Main.getProjFromDes(description);
+        }
+        project.delete(description);
     }
 
     static getCurrProj() {
@@ -68,15 +70,23 @@ class Main {
         return Main.TODOLIST.find((proj) => proj.name == projName);
     }
 
+    static getProjFromDes(description){
+        for (let proj of Main.TODOLIST){
+            if (proj.contains(description)){
+                return proj
+            }
+        }
+    }
+
     static removeProject(e) {
         if (e.target.className != "project-remove") {
             return;
         }
         const projName = e.target.parentNode.querySelector(".project-name").textContent;
-        const Project = Main.TODOLIST.find((project) => project.name == projName);
-        const index = Main.TODOLIST.indexOf(Project);
+        const project = Main.TODOLIST.find((project) => project.name == projName);
+        const index = Main.TODOLIST.indexOf(project);
         Main.TODOLIST.splice(index, 1);
-        console.log(Main.TODOLIST);
+        WebUI.homeButton.click();
     }
 
     static renderProject(e) {
@@ -84,9 +94,16 @@ class Main {
             return;
         }
         const projName = e.target.querySelector(".project-name").textContent;
-        const Project = Main.TODOLIST.find((project) => project.name == projName);
+        const project = Main.TODOLIST.find((project) => project.name == projName);
         WebUI.toDoList.innerHTML = '';
-        Project.renderTasks();
+        project.renderTasks();
+    }
+
+    static renderHome(e){
+        WebUI.toDoList.innerHTML = '';
+        Main.TODOLIST.forEach(proj =>{
+            proj.renderTasks();
+        })
     }
 
     static Initialize() {
@@ -97,6 +114,7 @@ class Main {
         WebUI.addProjectForm.addEventListener("submit", Main.addProject);
         WebUI.projectList.addEventListener("click", Main.removeProject);
         WebUI.projectList.addEventListener("click", Main.renderProject);
+        WebUI.homeButton.addEventListener('click', Main.renderHome);
     }
 }
 
