@@ -9,6 +9,10 @@ export default class Project{
         return this.tasks.find(task => task.description === description);
     }
 
+    setTasks(tasks){
+        this.tasks = tasks;
+    }
+
     contains(description){
         return this.tasks.some(task => task.description === description);
     }
