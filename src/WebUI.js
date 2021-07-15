@@ -7,6 +7,7 @@ export default class WebUI {
     static addTaskButton = document.getElementById('add-task-button');
     static cancelButton = document.querySelectorAll('.cancel');
     static projDefaultBut = document.querySelectorAll('.button-default')
+    static timeFilter = document.querySelectorAll('.time-button');
 
     static toDoList = document.querySelector('#to-do-list');
     static projectList = document.querySelector('#Project-List');
@@ -33,7 +34,6 @@ export default class WebUI {
 
     static displayProjectTitle(e){
         const projectTitle = document.querySelector('#current-project-title')
-        if(e.target.className!='button-projects'&&e.target.className!='button-default'){return}
         const content = e.target.className=='button-projects'? e.target.querySelector('div').innerHTML:
         e.target.innerHTML;
         projectTitle.innerHTML = content;
@@ -102,8 +102,22 @@ export default class WebUI {
         WebUI.projectList.addEventListener('click',WebUI.projDisplayModify);
         WebUI.projDefaultBut.forEach(button =>{
             button.addEventListener('click',WebUI.displayProjectTitle);
-        })
+        });
 
+        WebUI.projectList.addEventListener('click',(e)=>{
+            if(e.target.className != 'button-projects'){return}
+            WebUI.addTaskButton.classList.remove('active');
+        });
+
+        WebUI.homeButton.addEventListener('click', ()=>{
+            WebUI.addTaskButton.classList.remove('active');
+        });
+
+        WebUI.timeFilter.forEach(button =>{
+            button.addEventListener('click',()=>{
+                WebUI.addTaskButton.classList.add('active');
+            })
+        })
 
         //Task Display Modifier Events
         WebUI.toDoList.addEventListener('click',WebUI.taskDisplayModify);

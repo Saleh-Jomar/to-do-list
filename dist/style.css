@@ -189,6 +189,10 @@ nav {
     border-radius: 0.5rem;
 }
 
+#add-task-button.active {  
+    display: none;
+}
+
 #add-task-button:hover, .task:hover {
     background-color: #ddd;
 }
